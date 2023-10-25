@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
 	declarations: [
@@ -18,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 		MenubarModule,
 		AppRoutingModule,
 		HttpClientModule,
+		BrowserAnimationsModule
 
 	],
 	providers: [],

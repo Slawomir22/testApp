@@ -1,1 +1,50 @@
-<p>posts works!</p>
+<div class="card mt-3" *ngIf="(posts$ | async) as posts">
+	<p-table #postsData [value]="posts" dataKey="id" [rows]="5" [showCurrentPageReport]="true"
+		[rowsPerPageOptions]="[5, 10, 15]" [paginator]="true"
+		currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+		[globalFilterFields]="['title']">
+		<ng-template pTemplate="caption">
+			<div class="flex">
+				<button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+					(click)="clear(postsData)"></button>
+				<span class="p-input-icon-left ml-auto">
+					<i class="pi pi-search"></i>
+					<input pInputText type="text"
+						(input)="postsData.filterGlobal($any($event.target).value, 'contains')" placeholder="Search " />
+				</span>
+			</div>
+		</ng-template>
+		<ng-template pTemplate="header">
+			<tr>
+				<th style="width:5rem" pSortableColumn="id">
+					<div class="flex align-items-center">
+						Id
+						<p-sortIcon field="id"></p-sortIcon>
+					</div>
+				</th>
+				<th style="min-width:10rem" pSortableColumn="title">
+					<div class="flex align-items-center">
+						Title
+						<p-columnFilter type="text" field="title" display="menu"></p-columnFilter>
+						<p-sortIcon field="title"></p-sortIcon>
+					</div>
+				</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-post>
+			<tr>
+				<td>
+					{{ post.id }}
+				</td>
+				<td>
+					<span class="ml-1 vertical-align-middle">{{ post.title }}</span>
+				</td>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="emptymessage">
+			<tr>
+				<td colspan="7">No post found.</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</div>
