@@ -4,22 +4,22 @@ import { PostsComponent } from './posts/posts.component';
 import { TableModule } from 'primeng/table';
 import { PostsRoutingModule } from './posts-routing.module';
 import { ButtonModule } from 'primeng/button';
-import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
+
 
 
 
 @NgModule({
 	declarations: [
-		PostsComponent
+		PostsComponent,
+
 	],
 	imports: [
 		CommonModule,
 		PostsRoutingModule,
 		TableModule,
 		ButtonModule,
-		InputNumberModule,
-		InputTextModule
+		InputTextModule,
 	]
 })
 export class PostsModule { }

@@ -1,0 +1,4 @@
+<div class="w-screen h-screen loader" *ngIf="(loaderService.isBeingLoaded | async)">
+	<p-progressSpinner styleClass="w-15rem h-15rem" fill="var(--surface-ground)"
+		aria-label="Loading"></p-progressSpinner>
+</div>
