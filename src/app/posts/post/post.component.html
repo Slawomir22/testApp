@@ -1,0 +1,10 @@
+<ng-container *ngIf="(post$ | async) as post">
+	<p-card styleClass="mt-3" header="{{post.title}}">
+		<p class="m-0">
+			{{ post.body }}
+		</p>
+		<p>
+			User's identifier : {{ post.userId }}
+		</p>
+	</p-card>
+</ng-container>

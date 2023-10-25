@@ -1,8 +1,7 @@
 <div class="card mt-3">
 	<p-table #postsData [value]="posts" dataKey="id" [rows]="5" [showCurrentPageReport]="true"
 		[rowsPerPageOptions]="[5, 10, 15]" [paginator]="true"
-		currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-		[globalFilterFields]="['title']">
+		currentPageReportTemplate="Showing {first} to {last} of {totalRecords} posts" [globalFilterFields]="['title']">
 		<ng-template pTemplate="caption">
 			<div class="flex">
 				<button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
@@ -29,15 +28,24 @@
 						<p-sortIcon field="title"></p-sortIcon>
 					</div>
 				</th>
+				<th style="width:15rem" pSortableColumn="userId">
+					<div class="flex align-items-center justify-content-center">
+						User's identifier
+						<p-sortIcon field="userId"></p-sortIcon>
+					</div>
+				</th>
 			</tr>
 		</ng-template>
 		<ng-template pTemplate="body" let-post>
 			<tr>
 				<td>
-					{{ post.id }}
+					<span>{{ post.id }}</span>
 				</td>
 				<td>
-					<span class="ml-1 vertical-align-middle">{{ post.title }}</span>
+					<a [routerLink]="post.id" class="ml-1 vertical-align-middle">{{ post.title }}</a>
+				</td>
+				<td>
+					<div class="text-center">{{ post.userId }}</div>
 				</td>
 			</tr>
 		</ng-template>

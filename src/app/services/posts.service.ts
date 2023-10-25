@@ -10,9 +10,14 @@ export class PostsService {
 
 	constructor(private http: HttpClient) { }
 
-	api_Url = "https://jsonplaceholder.typicode.com/posts";
+	api_Url = "https://jsonplaceholder.typicode.com/posts/";
 
 	getAllPosts(): Observable<Post[]> {
-		return this.http.get<Post[]>(this.api_Url).pipe(delay(2000)); // operator delay is used to show loader clearly
+		return this.http.get<Post[]>(this.api_Url).pipe(delay(1000)); // operator delay is used to show loader clearly
 	}
+
+	getPost(id: number) {
+		return this.http.get<Post>(this.api_Url + id);
+	}
+
 }

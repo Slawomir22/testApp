@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import {
-	RouterStateSnapshot,
-	ActivatedRouteSnapshot
-} from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { PostsService } from '../services/posts.service';
 import { Post } from '../interfaces/post';
@@ -12,8 +8,7 @@ import { Post } from '../interfaces/post';
 })
 export class PostsResolver {
 	constructor(private postsService: PostsService) { }
-	resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Post[]> {
-		console.log(' resolver works')
+	resolve(): Observable<Post[]> {
 		return this.postsService.getAllPosts();
 	}
 }
