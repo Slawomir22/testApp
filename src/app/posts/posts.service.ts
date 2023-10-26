@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, delay } from 'rxjs';
+import { Observable, catchError, delay, throwError } from 'rxjs';
 import { Post } from '../interfaces/post';
 
 @Injectable({
@@ -13,11 +13,28 @@ export class PostsService {
 	api_Url = "https://jsonplaceholder.typicode.com/posts/";
 
 	getAllPosts(): Observable<Post[]> {
-		return this.http.get<Post[]>(this.api_Url).pipe(delay(1000)); // operator delay is used to show loader clearly
+		return this.http.get<Post[]>(this.api_Url).pipe(
+			delay(1000),  // operator delay is used to show loader clearly
+			catchError(this.handlingError)
+		);
 	}
 
 	getPost(id: number) {
-		return this.http.get<Post>(this.api_Url + id);
+		return this.http.get<Post>(this.api_Url + id).pipe(
+			catchError(this.handlingError)
+		);
+	}
+
+
+	handlingError(error: HttpErrorResponse) {
+		let errorMsg = '';
+		if (error.error instanceof ErrorEvent) {
+			errorMsg = `Error: ${error.error.message}`;
+		} else {
+			errorMsg = `Error Code: ${error.status} - message : ${error.message}`;
+		}
+		window.alert(errorMsg);
+		return throwError(() => new Error(errorMsg));
 	}
 
 }
