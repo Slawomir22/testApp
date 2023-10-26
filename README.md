@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 The libraries PrimeNG (https://primeng.org/)(MIT License) and PrimeFlex(https://www.primefaces.org/primeflex/)(MIT License)  have been used.
+Also, public API https://jsonplaceholder.typicode.com/ has been used.
 
 ## Development server
 
