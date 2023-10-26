@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PostComponent } from './post/post.component';
 import { CardModule } from 'primeng/card';
+import { TooltipModule } from 'primeng/tooltip';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CardModule } from 'primeng/card';
 		TableModule,
 		ButtonModule,
 		InputTextModule,
-		CardModule
+		CardModule,
+		TooltipModule
 	]
 })
 export class PostsModule { }

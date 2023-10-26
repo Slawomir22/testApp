@@ -9,7 +9,8 @@
 				<span class="p-input-icon-left ml-auto">
 					<i class="pi pi-search"></i>
 					<input pInputText type="text"
-						(input)="postsData.filterGlobal($any($event.target).value, 'contains')" placeholder="Search " />
+						(input)="postsData.filterGlobal($any($event.target).value, 'contains')"
+						placeholder="Search in titles" />
 				</span>
 			</div>
 		</ng-template>
@@ -42,7 +43,9 @@
 					<span>{{ post.id }}</span>
 				</td>
 				<td>
-					<a [routerLink]="post.id" class="ml-1 vertical-align-middle">{{ post.title }}</a>
+					<a pTooltip="Click here to show the text of the post" tooltipPosition="top" [routerLink]="post.id"
+						class="ml-1 vertical-align-middle">{{ post.title
+						}}</a>
 				</td>
 				<td>
 					<div class="text-center">{{ post.userId }}</div>
