@@ -1,7 +1,15 @@
 # TestApp
+This is the application that tests public API.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
-The libraries PrimeNG (https://primeng.org/)(MIT License) and PrimeFlex(https://www.primefaces.org/primeflex/)(MIT License)  have been used.
+
+Main technologies used:
+Angular - version 15.2,
+PrimeNG (https://primeng.org/)- version 15.4.1,
+PrimeFlex(https://www.primefaces.org/primeflex/) - version 3.3.1,
+Rxjs - version 7.8.0,
+Typescript" - version 4.9.4,
+
 Also, public API https://jsonplaceholder.typicode.com/ has been used.
 
 ## Development server
