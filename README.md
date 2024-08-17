@@ -1,5 +1,5 @@
 # TestApp
-This is the application that tests public API.
+This is the application that tests public API and presents the data from this API. It was made as a recruitment task.  
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
